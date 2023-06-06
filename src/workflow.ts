@@ -1,3 +1,4 @@
+import IntegrationService from "./mocks/IntegrationsService";
 import { proxyActivities } from "@temporalio/workflow";
 
 interface pythonActivities {
@@ -5,12 +6,12 @@ interface pythonActivities {
 }
 
 const { greet_melodramatic } = proxyActivities<pythonActivities>({
-  taskQueue: 'tutorial-activity',
-  startToCloseTimeout: '5m',
+  taskQueue: "tutorial-activity",
+  startToCloseTimeout: "5m",
 });
 
 export async function main(): Promise<string> {
-  const greeting = await greet_melodramatic('World', 'Temporal');
-  return greeting;
+  const { email, username, key } = await IntegrationService.getCredentials();
+  const response1 = await greet_melodramatic(email, username);
+  return `${response1}\nKey: ${key}`;
 }
-
