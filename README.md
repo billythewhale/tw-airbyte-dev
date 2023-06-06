@@ -8,8 +8,14 @@ Ensure you have these installed on your machine before continuing:
 
 - [Brew](https://brew.sh/)
 - [Node](https://nodejs.org/en/download/)
+- [VSCode](https://code.visualstudio.com/download)
+- [VSCode Prettier Extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Python](https://www.python.org/downloads/)
 - [PIP](https://pip.pypa.io/en/stable/installation/)
+
+Recommended to have:
+
+- [Github Copilot](https://copilot.github.com/)
 
 ## Dev Kit for Integrations
 
