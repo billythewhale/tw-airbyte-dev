@@ -1,6 +1,5 @@
 #!/bin/bash
 
-temporal server start-dev > /dev/null & PID=$! && \
-  sleep 1 && \
+temporal server start-dev > /dev/null & TEMPORAL_SERVER_PID=$! && \
   npx ts-node ./src/develop.ts && \
-  kill -INT $PID
+  kill -INT $TEMPORAL_SERVER_PID

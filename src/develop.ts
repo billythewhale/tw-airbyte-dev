@@ -3,36 +3,16 @@ import { spawn } from "child_process";
 import chalk from "chalk";
 import { nanoid } from "nanoid";
 import { Connection, Client } from "@temporalio/client";
-import { main } from "./workflow";
+import { run as workflowWorker } from "./sensory/workflows-ts-general/app";
+import { resultsLogger, activityLogger } from "./logger";
 
-const colors = {
-  workflow: "#f0f",
-  activity: "#0ff",
-  execution: "#ff0",
-  results: "#0f0",
-};
-
-const buildLogger = (prefix: string, color: string) => (msg: string) =>
-  process.stdout.write(
-      msg
-        .toString()
-        .split("\n")
-        .map((line) => `${chalk.hex(color)(prefix)}|  ${line}`)
-        .join(`\n`) + "\n"
-  );
-
-const workflowLogger = buildLogger("Workflow", colors.workflow);
-const activityLogger = buildLogger("Activity", colors.activity);
-const executionLogger = buildLogger("Execution", colors.execution);
-const resultsLogger = buildLogger("Results", colors.results);
-
-const workflowWorker = spawn("ts-node", ["src/worker.ts"]);
-workflowWorker.stdout.on("data", workflowLogger);
-workflowWorker.stderr.on("data", workflowLogger);
+workflowWorker().then((result) => {
+  resultsLogger.info('Workflow worker result: ' + result);
+});
 
 const activityWorker = spawn("python3", ["src/activity_worker.py"]);
-activityWorker.stdout.on("data", activityLogger);
-activityWorker.stderr.on("data", activityLogger);
+activityWorker.stdout.on("data", activityLogger.info);
+activityWorker.stderr.on("data", activityLogger.error);
 
 const promise = new Promise((res) => setTimeout(res, 2000));
 promise.then(() => {
