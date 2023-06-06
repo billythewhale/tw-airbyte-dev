@@ -17,11 +17,13 @@ Recommended to have:
 
 - [Github Copilot](https://copilot.github.com/)
 
-## Dev Kit for Integrations
+## Access
 
-### How to use:
+You should not need access to any additional services to develop this connector, only this repository.
 
-#### First off, install Temporal globally for Typescript
+If your connector will require API keys, and they will be provided for you, and you should put them in the `mocks/IntegrationsServices.ts` file.
+
+### Install Temporal globally for Typescript
 
 ```bash
 brew install temporal
@@ -29,10 +31,10 @@ brew install temporal
 curl -sSf https://temporal.download/cli.sh | sh
 ```
 
-Follow the promt to add the path variable to bash, you can copy the last line from that `curl` statement and put it in your terminal, something like:
+Follow the prompt to add the path variable to bash, you can copy the last line from that `curl` statement and put it in your terminal, something like:
 `echo export PATH="\$PATH:/Users/{ENTER_YOUR_USER_DIRECTORY}/.temporalio/bin" >> ~/.bashrc`
 
-#### Install temporal in python:
+#### Install temporal in Python
 
 ```bash
 python3 -m venv env
@@ -42,12 +44,12 @@ python3 -m venv env
 source env/bin/activate
 ```
 
-then
-
 ```bash
 python -m pip install temporalio
 ```
 
-### How to develop
+### How to Develop
 
 There are two files you need to edit:
+
+WIP
