@@ -1,9 +1,10 @@
 {
-  "name": "temporla-hello-world",
+  "name": "tw-airbyte-temporal",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "./start.sh"
+    "start": "ts-node src/develop.ts --watch",
+    "start-sh": "./start.sh"
   },
   "nodemonConfig": {
     "execMap": {
