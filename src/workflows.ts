@@ -12,8 +12,6 @@ const { greet_melodramatic } = proxyActivities<pythonActivities>({
 export async function main(): Promise<string> {
   const response1 = await greet_melodramatic('Billy', 'Bobby');
   const response2 = await greet_melodramatic('Bobby', 'Billy');
-  console.log(response1)
-  console.log(response2)
   return `${response1}\n${response2}`;
 }
 
