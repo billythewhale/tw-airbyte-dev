@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "ts-node src/develop.ts --watch",
-    "start-sh": "./start.sh"
+    "start": "./start.sh"
   },
   "nodemonConfig": {
     "execMap": {
