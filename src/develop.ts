@@ -7,7 +7,7 @@ import { run as workflowWorker } from "./sensory/workflows-ts-general/app";
 import { resultsLogger, activityLogger } from "./logger";
 
 workflowWorker().then((result) => {
-  resultsLogger.info('Workflow worker result: ' + result);
+  resultsLogger.info("Workflow worker result: " + result);
 });
 
 const activityWorker = spawn("python3", ["src/activity_worker.py"]);
@@ -39,20 +39,26 @@ if (require.main === module) {
   });
 }
 
-type RunCreateCredentialsWorkflowFunction = (provider: string, redirect_uri: string, state: string) => Promise<string>
+type RunCreateCredentialsWorkflowFunction = (
+  provider: string,
+  redirect_uri: string,
+  state: string
+) => Promise<string>;
 
 async function executeWorkflow(): Promise<string> {
   const connection = await Connection.connect();
   try {
-    const client = new Client({ connection });
+    // const client = new Client({ connection });
 
-    const handle = await client.workflow.start<RunCreateCredentialsWorkflowFunction>(main, {
-      args: [],
-      workflowId: `example-${nanoid()}`,
-      taskQueue: "tutorial-workflow",
-    });
+    // const handle = await client.workflow.start<RunCreateCredentialsWorkflowFunction>(main, {
+    //   args: [],
+    //   workflowId: `example-${nanoid()}`,
+    //   taskQueue: "tutorial-workflow",
+    // });
 
-    return handle.result();
+    // return handle.result();
+
+    return "test";
   } catch (err) {
     console.error(err);
     await connection.close();
