@@ -33,18 +33,21 @@ if (require.main === module) {
     }
     if (key.name === "return") {
       executeWorkflow().then((result) => {
-        resultsLogger(result);
+        resultsLogger.info(result);
       });
     }
   });
 }
 
-async function executeWorkflow() {
+type RunCreateCredentialsWorkflowFunction = (provider: string, redirect_uri: string, state: string) => Promise<string>
+
+async function executeWorkflow(): Promise<string> {
   const connection = await Connection.connect();
   try {
     const client = new Client({ connection });
 
-    const handle = await client.workflow.start(main, {
+    const handle = await client.workflow.start<RunCreateCredentialsWorkflowFunction>(main, {
+      args: [],
       workflowId: `example-${nanoid()}`,
       taskQueue: "tutorial-workflow",
     });
