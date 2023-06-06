@@ -3,7 +3,7 @@ import { spawn } from "child_process";
 import chalk from "chalk";
 import { nanoid } from "nanoid";
 import { Connection, Client } from "@temporalio/client";
-import { main } from "./workflows";
+import { main } from "./workflow";
 
 const colors = {
   workflow: "#f0f",
