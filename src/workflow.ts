@@ -13,5 +13,5 @@ const { greet_melodramatic } = proxyActivities<pythonActivities>({
 export async function main(): Promise<string> {
   const { email, username, key } = await IntegrationService.getCredentials();
   const response1 = await greet_melodramatic(email, username);
-  return `${response1}\n${key}`;
+  return `${response1}\nKey: ${key}`;
 }
