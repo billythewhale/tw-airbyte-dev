@@ -14,11 +14,11 @@ const colors = {
 
 const buildLogger = (prefix: string, color: string) => (msg: string) =>
   process.stdout.write(
-      msg
-        .toString()
-        .split("\n")
-        .map((line) => `${chalk.hex(color)(prefix)}|  ${line}`)
-        .join(`\n`) + "\n"
+    msg
+      .toString()
+      .split("\n")
+      .map((line) => `${chalk.hex(color)(prefix)}|  ${line}`)
+      .join(`\n`) + "\n"
   );
 
 const workflowLogger = buildLogger("Workflow", colors.workflow);
@@ -37,7 +37,7 @@ activityWorker.stderr.on("data", activityLogger);
 const promise = new Promise((res) => setTimeout(res, 2000));
 promise.then(() => {
   console.clear();
-  console.log('Open http://localhost:8233 to see the Temporal Server Web UI');
+  console.log("Open http://localhost:8233 to see the Temporal Server Web UI");
   console.log("\nPress enter to start a new workflow execution...");
   console.log("Press ctrl-c to exit\n\n");
 });
