@@ -2,7 +2,7 @@ import { Worker } from "@temporalio/worker";
 
 async function run() {
   const worker = await Worker.create({
-    workflowsPath: require.resolve("./workflows"),
+    workflowsPath: require.resolve("./workflow"),
     taskQueue: "tutorial-workflow",
   });
   await worker.run();
