@@ -5,6 +5,7 @@ import { nanoid } from "nanoid";
 import { Connection, Client } from "@temporalio/client";
 import { run as workflowWorker } from "./sensory/workflows-ts-general/app";
 import { resultsLogger, activityLogger } from "./logger";
+import {runCreateCredentials} from "./sensory/workflows-ts-general/workflows";
 
 workflowWorker().then((result) => {
   resultsLogger.info('Workflow worker result: ' + result);
@@ -39,17 +40,15 @@ if (require.main === module) {
   });
 }
 
-type RunCreateCredentialsWorkflowFunction = (provider: string, redirect_uri: string, state: string) => Promise<string>
-
 async function executeWorkflow(): Promise<string> {
   const connection = await Connection.connect();
   try {
     const client = new Client({ connection });
 
-    const handle = await client.workflow.start<RunCreateCredentialsWorkflowFunction>(main, {
-      args: [],
+    const handle = await client.workflow.start(runCreateCredentials, {
+      args: ['recharge', 'http://localhost:3000/callback', 'state'],
       workflowId: `example-${nanoid()}`,
-      taskQueue: "tutorial-workflow",
+      taskQueue: "workflows-queue",
     });
 
     return handle.result();

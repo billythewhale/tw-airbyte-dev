@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "store": {
+      "type": ["null", "object"],
+      "properties": {
+        "id": {
+          "type": ["null", "integer"]
+        },
+        "checkout_logo_url": {
+          "type": ["null", "string"]
+        },
+        "checkout_platform": {
+          "type": ["null", "string"]
+        },
+        "created_at": {
+          "type": ["null", "string"],
+          "format": "date-time"
+        },
+        "currency": {
+          "type": ["null", "string"]
+        },
+        "customer_portal_base_url": {
+          "type": ["null", "string"]
+        },
+        "default_api_version": {
+          "type": ["null", "string"]
+        },
+        "email": {
+          "type": ["null", "string"]
+        },
+        "enabled_presentment_currencies": {
+          "type": ["null", "array"],
+          "items": {
+            "type": ["null", "string"]
+          }
+        },
+        "enabled_presentment_currencies_symbols": {
+          "type": ["null", "array"],
+          "items": {
+            "type": ["null", "object"],
+            "properties": {
+              "currency": {
+                "type": ["null", "string"]
+              },
+              "location": {
+                "type": ["null", "string"]
+              },
+              "suffix": {
+                "type": ["null", "string"]
+              },
+              "symbol": {
+                "type": ["null", "string"]
+              }
+            }
+          }
+        },
+        "disabled_currencies_historical": {
+          "type": ["null", "array"],
+          "items": {
+            "type": ["null", "string"]
+          }
+        },
+        "external_platform": {
+          "type": ["null", "string"]
+        },
+        "identifier": {
+          "type": ["null", "string"]
+        },
+        "merchant_portal_base_url": {
+          "type": ["null", "string"]
+        },
+        "name": {
+          "type": ["null", "string"]
+        },
+        "province": {
+          "type": ["null", "string"]
+        },
+        "phone": {
+          "type": ["null", "string"]
+        },
+        "timezone": {
+          "type": ["null", "object"],
+          "properties": {
+            "iana_timezone": {
+              "type": ["null", "string"]
+            },
+            "name": {
+              "type": ["null", "string"]
+            }
+          }
+        },
+        "updated_at": {
+          "type": ["null", "string"],
+          "format": "date-time"
+        },
+        "weight_unit": {
+          "type": ["null", "string"]
+        }
+      }
+    }
+  }
+}

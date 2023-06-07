@@ -1,0 +1,15 @@
+- op: replace
+  path: /metadata/name
+  value: activities-py-recharge
+- op: replace
+  path: /metadata/labels/io.kompose.service
+  value: activities-py-recharge
+- op: replace
+  path: /spec/selector/matchLabels/io.kompose.service
+  value: activities-py-recharge
+- op: replace
+  path: /spec/template/metadata/labels/io.kompose.service
+  value: activities-py-recharge
+- op: replace
+  path: /spec/template/spec/containers/0/image
+  value: us-central1-docker.pkg.dev/triple-whale-staging/temporal-workers/activities-py-recharge

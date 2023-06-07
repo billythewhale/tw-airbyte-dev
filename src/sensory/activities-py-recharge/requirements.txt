@@ -1,0 +1,4 @@
+--extra-index-url=https://us-central1-python.pkg.dev/triple-whale-staging/sensory/simple/
+temporalio
+sensory-py-utils @ https://us-central1-python.pkg.dev/triple-whale-staging/sensory/sensory-py-utils/sensory_py_utils-0.0.10-py3-none-any.whl
+source-recharge @ https://us-central1-python.pkg.dev/triple-whale-staging/sensory/source-recharge/source_recharge-0.0.2-py3-none-any.whl
